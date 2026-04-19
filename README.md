@@ -51,6 +51,17 @@ The system was verified using waveform simulation to validate:
 ## 📊 Simulation
 ![Waveform](simulation/waveform.png)
 
+## ⚙️ Inputs
+- clk
+- reset
+- door_closed
+- water_level
+- motor_fault
+
+## ⚙️ Outputs
+- LED
+- 7-segment display
+
 ## 🚀 Implementation
 
 * Designed and simulated in Quartus II
