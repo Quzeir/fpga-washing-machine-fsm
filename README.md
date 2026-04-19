@@ -4,6 +4,13 @@
 
 This project implements an FPGA-based automatic washing machine controller using a Finite State Machine (FSM) in Verilog HDL. The system controls the full washing cycle including filling, washing, rinsing, spinning, and fault handling.
 
+## 🧠 How it works
+The system transitions through:
+READY → FILL → WASH → RINSE → SPIN → READY
+
+Fault condition:
+→ Goes to FAULT state and stops system
+
 ## ⚙️ System Architecture
 
 The controller is designed using FSM with the following states:
@@ -38,9 +45,11 @@ The system was verified using waveform simulation to validate:
 * Timing accuracy
 * Fault handling behavior
 
-## 📷 Diagrams
+## 🧠 FSM Diagram
+![FSM](docs/fsm_diagram.png)
 
-<img width="437" height="379" alt="image" src="https://github.com/user-attachments/assets/89ebb7d5-d7a1-4e31-883f-2b14afbd850f" />
+## 📊 Simulation
+![Waveform](simulation/waveform.png)
 
 ## 🚀 Implementation
 
