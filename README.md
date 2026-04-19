@@ -1,41 +1,51 @@
-# fpga-washing-machine-fsm
+# FPGA Automatic Washing Machine Controller (FSM)
 
 ## 📌 Overview
 
-This project implements an FPGA-based automatic washing machine controller using a Finite State Machine (FSM) in Verilog HDL. The system controls the full washing cycle including filling, washing, rinsing, spinning, and fault handling.
+This project implements an FPGA-based automatic washing machine controller using a Finite State Machine (FSM) in Verilog HDL. The system manages the full washing cycle including filling, washing, rinsing, spinning, and fault handling.
 
-## 🧠 How it works
-The system transitions through:
-READY → FILL → WASH → RINSE → SPIN → READY
-
-Fault condition:
-→ Goes to FAULT state and stops system
+---
 
 ## ⚙️ System Architecture
 
-The controller is designed using FSM with the following states:
+The system follows this structure:
 
-* READY
-* FILL
-* WASH (10s)
-* RINSE (10s)
-* SPIN (5s)
-* FAULT
+Inputs → FSM Controller → Outputs
 
-State transitions are controlled using counters and input signals such as door status, water level, and motor fault.
+### Inputs:
 
-## 🛠️ Technologies Used
+* clk
+* reset
+* door_closed
+* water_level
+* motor_fault
 
-* Verilog HDL
-* Quartus II 9.1
-* Altera DE2 FPGA Board
+### Outputs:
 
-## 🧪 Features
+* LED indicators
+* 7-segment display
 
-* Time-controlled washing cycles using counters
-* Fault detection and recovery mechanism
-* Real-time FSM-based control system
-* 7-segment display output for system status
+---
+
+## 🧠 FSM Operation
+
+The controller transitions through the following states:
+
+READY → FILL → WASH → RINSE → SPIN → READY
+
+If a fault is detected:
+→ The system transitions to FAULT state and halts operation
+→ Returns to READY after the fault is cleared
+
+State transitions are controlled using counters and input signals.
+
+---
+
+## 🧠 FSM Diagram
+
+![FSM](docs/fsm_diagram.png)
+
+---
 
 ## 📊 Simulation Results
 
@@ -45,38 +55,52 @@ The system was verified using waveform simulation to validate:
 * Timing accuracy
 * Fault handling behavior
 
-## 🧠 FSM Diagram
-![FSM](docs/fsm_diagram.png)
-
-## 📊 Simulation
 ![Waveform](simulation/waveform.png)
 
-## ⚙️ Inputs
-- clk
-- reset
-- door_closed
-- water_level
-- motor_fault
+---
 
-## ⚙️ Outputs
-- LED
-- 7-segment display
+## 🛠️ Technologies Used
 
-## 🚀 Implementation
+* Verilog HDL
+* Quartus II 9.1
+* Altera DE2 FPGA Board
 
-* Designed and simulated in Quartus II
-* Successfully deployed on DE2 FPGA board
-* Verified real-time operation
+---
+
+## 🚀 Features
+
+* FSM-based digital control system
+* Time-controlled washing cycles
+* Fault detection and recovery
+* Real-time FPGA implementation
+
+---
+
+## 📁 Project Structure
+
+* `src/` → Verilog source code
+* `docs/` → FSM diagram
+* `simulation/` → waveform results
+
+---
 
 ## 📌 Key Learning Outcomes
 
 * FSM design and implementation
-* Verilog HDL coding and debugging
+* Verilog HDL development and debugging
 * FPGA-based system deployment
 * Digital system timing control
 
+---
+
 ## 🔧 Future Improvements
 
-* Add sensor-based automation (water level, load detection)
+* Add sensor-based automation
 * Integrate LCD or user interface
 * Optimize power consumption
+
+---
+
+## 👨‍💻 Author
+
+Muhammad Quzeir Al-Azim
